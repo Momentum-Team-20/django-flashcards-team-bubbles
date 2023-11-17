@@ -13,6 +13,9 @@ class User(AbstractUser):
 # Model for container holding a deck of cards
 class Card_Box(models.Model):
     name = models.CharField(max_length=255)
+    user = models.ForeignKey(
+        'User', on_delete=models.CASCADE, related_name='user'
+    )
 
     def __str__(self):
 
