@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t!i(=ffyy_)gr2v4!jxyxu^b*^s5zzfv4w1$h%82jjai%*hn3j'
+SECRET_KEY = 'django-insecure-#@jx3iiyixnr*m(1tn&%o7l1f^h&r+l6(#a94tn8!6drf*v=4q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,4 +124,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRCT_URL = '/'
+AUTH_USER_MODEL = "study_with_cards.User"
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'auth_login'

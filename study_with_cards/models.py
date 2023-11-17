@@ -3,6 +3,13 @@ from django.contrib.auth.models import AbstractUser
 
 
 # Create your models here.
+class User(AbstractUser):
+    pass
+
+    def __str__(self):
+        return self.username
+
+
 # Model for container holding a deck of cards
 class Card_Box(models.Model):
     name = models.CharField(max_length=255)
@@ -37,3 +44,4 @@ class Card(models.Model):
     def __str__(self):
 
         return self.name
+    
