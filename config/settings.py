@@ -127,4 +127,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "study_with_cards.User"
 
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'auth_login'
