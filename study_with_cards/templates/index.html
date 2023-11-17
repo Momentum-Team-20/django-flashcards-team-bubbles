@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>User Homepage</h1>
+<h3>Boxes of Cards</h3>
+<ul>
+    {% for box in boxes %}
+    <li>{{ box }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
