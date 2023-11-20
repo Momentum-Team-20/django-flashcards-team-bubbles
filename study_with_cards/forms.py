@@ -12,3 +12,9 @@ class NewDeckForm(ModelForm):
     class Meta:
         model = Deck
         fields = ('name', 'box')
+
+
+class NewCardForm(ModelForm):
+    class Meta:
+        model = Card
+        fields = ('name', 'question', 'answer', 'deck')

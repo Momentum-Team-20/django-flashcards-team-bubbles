@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import NewCardBoxForm, NewDeckForm
+from .forms import NewCardBoxForm, NewDeckForm, NewCardForm
 from .models import User, Card_Box, Card, Deck
 
 
@@ -43,3 +43,16 @@ def create_new_deck(request):
         return redirect('home')
     form = NewDeckForm()
     return render(request, 'new_deck.html', {'form': form})
+
+
+@login_required
+def create_new_card(request):
+    card = Card.objects.all()
+    if request.method == 'POST':
+        form = NewCardForm(request.POST)
+        new_card = form.save(commit=False)
+        new_card.card = card
+        new_card.save()
+        return redirect('home')
+    form = NewCardForm()
+    return render(request, 'new_card.html', {'form': form})
