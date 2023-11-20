@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Decks:</h3>
+<ul>
+{% for deck in decks %}
+    <li>{{ deck }}</li>
+
+    {% endfor %}
+</ul>
+{% endblock %}

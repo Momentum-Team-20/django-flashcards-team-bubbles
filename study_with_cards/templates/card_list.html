@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>Card list:</h1>
+
+<ul>
+    {% for card in cards %}
+    <li>{{ card }}</li>
+    {% endfor %}
+
+</ul>
+
+{% endblock %}
