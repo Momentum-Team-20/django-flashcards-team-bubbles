@@ -5,7 +5,7 @@
 <h3>Boxes of Cards</h3>
 <ul>
     {% for box in boxes %}
-    <li>{{ box }}</li>
+    <li><a href="{% url 'deck-list' box.pk %}">{{ box }}</a></li>
     {% endfor %}
 </ul>
 <a href="{% url 'new-card-box' %}">Add New Box</a>
