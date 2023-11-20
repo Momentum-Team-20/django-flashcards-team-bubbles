@@ -56,3 +56,8 @@ def create_new_card(request):
         return redirect('home')
     form = NewCardForm()
     return render(request, 'new_card.html', {'form': form})
+
+@login_required
+def card_details(request, card_pk):
+    card = get_object_or_404(Card, pk=card_pk)
+    return render(request, 'card_details.html', {'card': card})
