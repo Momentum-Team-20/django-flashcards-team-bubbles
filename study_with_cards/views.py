@@ -25,8 +25,6 @@ def create_new_card_box(request):
         form = NewCardBoxForm(request.POST)
         new_card_box = form.save(commit=False)
         new_card_box.card_box = card_box
-        breakpoint()
-        new_card_box['user_id'] = card_box.user_id
         new_card_box.save()
         return redirect('home')
     form = NewCardBoxForm()
