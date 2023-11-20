@@ -2,10 +2,13 @@
 
 {% block content %}
 <h1>User Homepage</h1>
+<h2> logged in as {{ user.username }}</h2>
 <h3>Boxes of Cards</h3>
 <ul>
     {% for box in boxes %}
     <li>{{ box }}</li>
+    {% empty %}
+      {{ user.username }} has no boxes
     {% endfor %}
 </ul>
 <a href="{% url 'new-card-box' %}">Add New Box</a>
