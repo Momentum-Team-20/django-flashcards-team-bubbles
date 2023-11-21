@@ -2,6 +2,20 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import NewCardBoxForm, NewDeckForm, NewCardForm
 from .models import User, Card_Box, Card, Deck
+import random
+
+
+# function to compile list of cards in a given deck
+def shuffle_deck(cards):
+    card_list = cards.values_list()
+    # for card in cards:
+    #     card_list += card
+    return card_list
+
+
+def select_random_card(card_list):
+    random_card = card_list[random.randint(0, len(card_list) - 1)]
+    return random_card
 
 
 @login_required
@@ -18,6 +32,11 @@ def deck_list(request, pk):
 @login_required
 def card_list(request, deck_pk):
     cards = Card.objects.filter(deck_id=deck_pk)
+    if request.method == 'POST':
+        new_card_list = shuffle_deck(cards)
+        random_card = select_random_card(new_card_list)
+        card_pk = random_card.pk
+        return card_question(request, card_pk)
     return render(request, 'card_list.html', {'cards': cards})
 
 @login_required

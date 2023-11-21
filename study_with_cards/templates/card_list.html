@@ -8,7 +8,10 @@
     {% for card in cards %}
     <li><a href="{% url 'card-details' card.pk %}">{{ card }}</a></li>
     {% endfor %}
-
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit">Use Deck</button>
+    </form>  
 </ul>
 <a href="{% url 'new-card' %}">Add a Card</a>
 {% endblock %}

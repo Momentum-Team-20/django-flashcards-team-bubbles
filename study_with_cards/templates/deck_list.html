@@ -3,8 +3,7 @@
 <h3>Decks: </h3>
 <ul>
 {% for deck in decks %}
-    <li><a href="{% url 'card-list' deck.pk%}">{{ deck.name }}</a></li>
-
+    <li><a href="{% url 'card-list' deck.pk%}">{{ deck.name }}</a></li>  
     {% endfor %}
 </ul>
 
