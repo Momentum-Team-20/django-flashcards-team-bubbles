@@ -69,8 +69,13 @@ def update_card(request, card_pk):
     if request.method == 'POST':
         form = NewCardForm(request.POST,instance=card)
         card = form.save(commit=False)
-        
         card.save()
         return redirect('home')
     form = NewCardForm()
     return render(request, 'update_card.html', {'form': form})
+
+
+@login_required
+def card_question(request, card_pk):
+    card = get_object_or_404(Card, pk=card_pk)
+    return render(request, 'card_question.html', {'card': card})

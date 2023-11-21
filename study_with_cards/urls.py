@@ -11,4 +11,5 @@ urlpatterns = [
     path('new-card/', views.create_new_card, name='new-card'),
     path('card/<int:card_pk>/', views.card_details, name='card-details'),
     path('card/<int:card_pk>/update',views.update_card, name='update-card' ),
+    path('card/<int:card_pk>/question', views.card_question, name='card-question'),
 ]

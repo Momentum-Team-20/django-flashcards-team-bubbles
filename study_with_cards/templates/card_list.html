@@ -6,7 +6,7 @@
 
 <ul>
     {% for card in cards %}
-    <li>{{ card }}</li>
+    <li><a href="{% url 'card-details' card.pk %}">{{ card }}</a></li>
     {% endfor %}
 
 </ul>
