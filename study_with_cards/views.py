@@ -6,16 +6,7 @@ import random
 
 
 # function to compile list of cards in a given deck
-def shuffle_deck(cards):
-    card_list = cards.values_list()
-    # for card in cards:
-    #     card_list += card
-    return card_list
 
-
-def select_random_card(card_list):
-    random_card = card_list[random.randint(0, len(card_list) - 1)]
-    return random_card
 
 
 @login_required
@@ -79,6 +70,8 @@ def create_new_card(request):
 @login_required
 def card_details(request, card_pk):
     card = get_object_or_404(Card, pk=card_pk)
+    if request.method == 'POST':
+        
     return render(request, 'card_details.html', {'card': card})
 
 @login_required
