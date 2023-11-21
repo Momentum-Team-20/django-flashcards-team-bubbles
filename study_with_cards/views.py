@@ -33,9 +33,8 @@ def deck_list(request, pk):
 def card_list(request, deck_pk):
     cards = Card.objects.filter(deck_id=deck_pk)
     if request.method == 'POST':
-        new_card_list = shuffle_deck(cards)
-        random_card = select_random_card(new_card_list)
-        card_pk = random_card.pk
+        card = random.choice(cards)
+        card_pk = card.pk
         return card_question(request, card_pk)
     return render(request, 'card_list.html', {'cards': cards})
 
@@ -94,7 +93,6 @@ def update_card(request, card_pk):
     return render(request, 'update_card.html', {'form': form})
 
 
-@login_required
 def card_question(request, card_pk):
     card = get_object_or_404(Card, pk=card_pk)
     return render(request, 'card_question.html', {'card': card})
