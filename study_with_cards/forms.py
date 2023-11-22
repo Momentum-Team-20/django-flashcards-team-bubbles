@@ -27,3 +27,9 @@ class AnswerBoxForm(ModelForm):
         labels = {
             "is_correct": ("Answered Correctly"),
         }
+
+
+class CardForm(ModelForm):
+    class Meta:
+        model = Card
+        fields = ('name', 'question', 'answer', 'deck')

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import NewCardBoxForm, NewDeckForm, NewCardForm, AnswerBoxForm
+from .forms import NewCardBoxForm, NewDeckForm, NewCardForm, AnswerBoxForm, CardForm
 from .models import User, Card_Box, Card, Deck
 import random
 
@@ -27,7 +27,7 @@ def card_list(request, deck_pk):
         card = random.choice(cards)
         card_pk = card.pk
         return card_question(request, card_pk)
-    return render(request, 'card_list.html', {'cards': cards})
+    return render(request, 'card_list.html', {'cards': cards, 'deck_pk': deck_pk})
 
 @login_required
 def create_new_card_box(request):
@@ -86,7 +86,7 @@ def card_details(request, card_pk):
 def update_card(request, card_pk):
     card = get_object_or_404(Card, pk=card_pk)
     if request.method == 'POST':
-        form = NewCardForm(request.POST,instance=card)
+        form = NewCardForm(request.POST, instance=card)
         card = form.save(commit=False)
         card.save()
         return redirect('home')
@@ -97,3 +97,26 @@ def update_card(request, card_pk):
 def card_question(request, card_pk):
     card = get_object_or_404(Card, pk=card_pk)
     return render(request, 'card_question.html', {'card': card})
+
+
+# delete function for cards
+def delete_card(request, card_pk):
+    card = get_object_or_404(Card, pk=card_pk)
+    if request.method == 'POST':
+        form = CardForm(request.POST, instance=card)
+        card = form.save(commit=False)
+        card.delete()
+        return redirect('home',)
+    form = CardForm(instance=card)
+    return render(request, 'delete_card.html', {'form': form})
+
+
+def delete_deck(request, deck_pk):
+    deck = get_object_or_404(Deck, pk=deck_pk)
+    if request.method == 'POST':
+        form = NewDeckForm(request.POST, instance=deck)
+        deck = form.save(commit=False)
+        deck.delete()
+        return redirect('home',)
+    form = NewDeckForm(instance=deck)
+    return render(request, 'delete_deck.html', {'form': form})

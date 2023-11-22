@@ -12,4 +12,6 @@ urlpatterns = [
     path('card/<int:card_pk>/', views.card_details, name='card-details'),
     path('card/<int:card_pk>/update',views.update_card, name='update-card' ),
     path('card/<int:card_pk>/question', views.card_question, name='card-question'),
+    path('card/<int:card_pk>/delete', views.delete_card, name='delete-card'),
+    path('decks/<int:deck_pk>/delete', views.delete_deck, name="delete-deck"),
 ]
