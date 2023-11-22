@@ -70,7 +70,12 @@ def create_new_card(request):
 @login_required
 def card_details(request, card_pk):
     card = get_object_or_404(Card, pk=card_pk)
+    
     if request.method == 'POST':
+        breakpoint()   
+        if request.checkbox == checked:
+            card.is_correct = True
+        
         deck_pk = card.deck_id
         cards = Card.objects.filter(deck_id=deck_pk)
         new_card = random.choice(cards)

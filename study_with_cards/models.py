@@ -40,6 +40,7 @@ class Card(models.Model):
     name = models.CharField(max_length=50, null=True)
     question = models.TextField(max_length=500)
     answer = models.TextField(max_length=500)
+    is_correct = models.BooleanField(default=False)
     deck = models.ForeignKey(
         'Deck', on_delete=models.CASCADE, related_name='cards'
     )
