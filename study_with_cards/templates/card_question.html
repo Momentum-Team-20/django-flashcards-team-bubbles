@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<h1>{{ card.name }}</h1>
-<p>Question: {{ card.question }}</p>
-<p>Answer:</p>
+<div class="cardWrapper">
+    <h1>{{ card.name }}</h1>
+    <p>Question: {{ card.question }}</p>
+    <p>Answer:</p>
+</div>
 
 <a href="{% url 'card-details' card.pk %}">Reveal Answer</a>
 
