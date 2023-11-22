@@ -18,3 +18,12 @@ class NewCardForm(ModelForm):
     class Meta:
         model = Card
         fields = ('name', 'question', 'answer', 'deck')
+
+
+class AnswerBoxForm(ModelForm):
+    class Meta:
+        model = Card
+        fields = ('is_correct',)
+        labels = {
+            "is_correct": ("Answered Correctly"),
+        }

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import NewCardBoxForm, NewDeckForm, NewCardForm
+from .forms import NewCardBoxForm, NewDeckForm, NewCardForm, AnswerBoxForm
 from .models import User, Card_Box, Card, Deck
 import random
 
@@ -70,30 +70,27 @@ def create_new_card(request):
 @login_required
 def card_details(request, card_pk):
     card = get_object_or_404(Card, pk=card_pk)
-    
     if request.method == 'POST':
-        breakpoint()   
-        if request.checkbox == checked:
-            card.is_correct = True
-        
+        form = AnswerBoxForm(request.POST, instance=card)
+        form.save()
         deck_pk = card.deck_id
         cards = Card.objects.filter(deck_id=deck_pk)
         new_card = random.choice(cards)
         new_pk = new_card.pk
         return card_question(request, new_pk)
-    
+    form = AnswerBoxForm(instance=card)
+    return render(request, 'card_details.html', {'card': card, 'form': form})
 
-    return render(request, 'card_details.html', {'card': card})
 
 @login_required
 def update_card(request, card_pk):
-    card= get_object_or_404(Card, pk=card_pk)
+    card = get_object_or_404(Card, pk=card_pk)
     if request.method == 'POST':
         form = NewCardForm(request.POST,instance=card)
         card = form.save(commit=False)
         card.save()
         return redirect('home')
-    form = NewCardForm()
+    form = NewCardForm(instance=card)
     return render(request, 'update_card.html', {'form': form})
 
 

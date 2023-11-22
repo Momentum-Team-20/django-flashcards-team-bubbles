@@ -7,8 +7,7 @@
 <p>Answer: {{ card.answer }}</p>
   <form action="" method="post">
     {% csrf_token %}
+    {{ form.as_p }}
     <button type="submit">Next card</button>    
-    <input type="checkbox" id="correct">
-    <label for="correct"> answer correctly</label>
 </form> 
 {% endblock %}
