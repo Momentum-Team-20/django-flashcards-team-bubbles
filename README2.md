@@ -10,3 +10,19 @@ The project was to build a working website to allow users to log in to their own
 
 3. I leared more about the built in random functions which allowed me to negate two functions I had previously written, clean up my code, and make in function more easily.
 
+
+# JOSE :
+
+1.Working in a group has provided me with valuable insights and skills that extend beyond individual contributions. 
+
+2.Collaborating with diverse team members has taught me the significance of effective communication and the importance of listening to various perspectives. 
+
+3.Also enhanced my adaptability and flexibility, as it often requires compromise and the ability to navigate differing opinions.
+
+4. I learn about Django Forms.
+
+5.I would like to work on giving more details to the project, when I have a little more knowledge. 
+ 
+
+
+
