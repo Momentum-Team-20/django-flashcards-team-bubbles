@@ -10,4 +10,7 @@
     {{ form.as_p }}
     <button type="submit">Next card</button>    
 </form> 
+
+<a href="{% url 'update-card' card.pk %}">Update Card</a>
+<a href="{% url 'card-list' card.deck.pk %}">Return to Card List</a>
 {% endblock %}
