@@ -1,5 +1,10 @@
 body { background-color: lightskyblue ;
     
+}
 
-
+.cardWrapper {
+    border: solid thick black;
+    background-color: white;
+    width: 33vw;
+    height: auto;
 }
