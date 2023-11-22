@@ -23,6 +23,10 @@ The project was to build a working website to allow users to log in to their own
 
 5.I would like to work on giving more details to the project, when I have a little more knowledge. 
  
+# Next steps
 
+we discussed additional formatting to make the card boxes look like actual boxes that can be clicked.  Making the cards look more like actual note cards.
+
+Also, discussed having the cards that were answered correcly be removed from the deck temporarily so the user can just review cards they have answered incorrectly previously.  Then be able to reset the deck to the full amount for another reivew.
 
 
